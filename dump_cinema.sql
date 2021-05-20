@@ -176,7 +176,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES ('RE1','CL1','SC1'),('RE2','CL2','SC1'),('RE3','CL3','SC4'),('RE4','CL4','SC4'),('RE5','CL5','SC6'),('RE6','CL6','SC5');
+INSERT INTO `reservation` VALUES ('RE1','CL1','SC1'),('RE2','CL2','SC1'),('RE3','CL3','SC4'),('RE4','CL4','SC4'),('RE6','CL6','SC5');
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,4 +274,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-20 23:15:45
+-- Dump completed on 2021-05-20 23:32:32
