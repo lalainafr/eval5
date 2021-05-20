@@ -1,6 +1,6 @@
 -- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: bdd_cinema
+-- Host: localhost    Database: db_cinema
 -- ------------------------------------------------------
 -- Server version	10.4.13-MariaDB
 
@@ -16,12 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `bdd_cinema`
+-- Current Database: `db_cinema`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `bdd_cinema` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `db_cinema` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 
-USE `bdd_cinema`;
+USE `db_cinema`;
 
 --
 -- Table structure for table `client`
@@ -31,17 +31,17 @@ DROP TABLE IF EXISTS `client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `client` (
-  `id_client` varchar(50) NOT NULL,
-  `nom_client` varchar(50) DEFAULT NULL,
-  `adresse_client` varchar(50) DEFAULT NULL,
-  `id_tarif` varchar(50) NOT NULL,
-  `id_paiement` varchar(50) NOT NULL,
+  `id_client` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_client` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `adresse_client` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_tarif` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_paiement` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_client`),
   KEY `id_tarif` (`id_tarif`),
   KEY `id_paiement` (`id_paiement`),
   CONSTRAINT `client_ibfk_1` FOREIGN KEY (`id_tarif`) REFERENCES `tarif` (`id_tarif`),
   CONSTRAINT `client_ibfk_2` FOREIGN KEY (`id_paiement`) REFERENCES `mode_de_paiement` (`id_paiement`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,10 +62,10 @@ DROP TABLE IF EXISTS `complexe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `complexe` (
-  `id_complexe` varchar(50) NOT NULL,
-  `nom_complexe` varchar(50) DEFAULT NULL,
+  `id_complexe` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_complexe` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_complexe`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,11 +86,11 @@ DROP TABLE IF EXISTS `film`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `film` (
-  `id_film` varchar(50) NOT NULL,
-  `titre_film` varchar(50) DEFAULT NULL,
-  `duree_film` varchar(50) DEFAULT NULL,
+  `id_film` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `titre_film` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `duree_film` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_film`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,10 +111,10 @@ DROP TABLE IF EXISTS `horaire`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `horaire` (
-  `id_horaire` varchar(50) NOT NULL,
-  `horaire` varchar(50) DEFAULT NULL,
+  `id_horaire` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `horaire` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_horaire`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `horaire` (
 
 LOCK TABLES `horaire` WRITE;
 /*!40000 ALTER TABLE `horaire` DISABLE KEYS */;
-INSERT INTO `horaire` VALUES ('HO1','9 heures'),('HO2','14h'),('HO3','20 heures');
+INSERT INTO `horaire` VALUES ('HO1','10h'),('HO2','14h'),('HO3','20h');
 /*!40000 ALTER TABLE `horaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,10 +135,10 @@ DROP TABLE IF EXISTS `mode_de_paiement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mode_de_paiement` (
-  `id_paiement` varchar(50) NOT NULL,
-  `type_paiement` varchar(50) DEFAULT NULL,
+  `id_paiement` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `type_paiement` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_paiement`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,15 +159,15 @@ DROP TABLE IF EXISTS `reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `reservation` (
-  `id_reservation` varchar(50) NOT NULL,
-  `id_client` varchar(50) NOT NULL,
-  `id_seance` varchar(50) NOT NULL,
+  `id_reservation` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_client` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_seance` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_reservation`),
   KEY `id_client` (`id_client`),
   KEY `id_seance` (`id_seance`),
   CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`),
   CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`id_seance`) REFERENCES `seance` (`id_seance`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,17 +188,17 @@ DROP TABLE IF EXISTS `salle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `salle` (
-  `id_salle` varchar(50) NOT NULL,
-  `nom_salle` varchar(50) DEFAULT NULL,
+  `id_salle` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_salle` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `place_disponible` int(11) DEFAULT NULL,
-  `id_complexe` varchar(50) NOT NULL,
-  `id_horaire` varchar(50) NOT NULL,
+  `id_horaire` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_complexe` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_salle`),
-  KEY `id_complexe` (`id_complexe`),
   KEY `id_horaire` (`id_horaire`),
-  CONSTRAINT `salle_ibfk_1` FOREIGN KEY (`id_complexe`) REFERENCES `complexe` (`id_complexe`),
-  CONSTRAINT `salle_ibfk_2` FOREIGN KEY (`id_horaire`) REFERENCES `horaire` (`id_horaire`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `id_complexe` (`id_complexe`),
+  CONSTRAINT `salle_ibfk_1` FOREIGN KEY (`id_horaire`) REFERENCES `horaire` (`id_horaire`),
+  CONSTRAINT `salle_ibfk_2` FOREIGN KEY (`id_complexe`) REFERENCES `complexe` (`id_complexe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,7 +207,7 @@ CREATE TABLE `salle` (
 
 LOCK TABLES `salle` WRITE;
 /*!40000 ALTER TABLE `salle` DISABLE KEYS */;
-INSERT INTO `salle` VALUES ('SA1','Salle1',20,'CO1','HO1'),('SA2','Salle1',10,'CO1','HO2'),('SA3','Salle1',5,'CO1','HO3'),('SA4','Salle2',25,'CO1','HO1'),('SA5','Salle2',15,'CO1','HO2'),('SA6','Salle1',17,'CO2','HO1'),('SA7','Salle1',7,'CO2','HO3');
+INSERT INTO `salle` VALUES ('SA1','Salle1',20,'HO1','CO1'),('SA2','Salle1',10,'HO2','CO1'),('SA3','Salle1',5,'HO3','CO1'),('SA4','Salle2',25,'HO1','CO1'),('SA5','Salle2',15,'HO2','CO1'),('SA6','Salle1',17,'HO1','CO2'),('SA7','Salle1',7,'HO3','CO2');
 /*!40000 ALTER TABLE `salle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,15 +219,15 @@ DROP TABLE IF EXISTS `seance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `seance` (
-  `id_seance` varchar(50) NOT NULL,
-  `id_salle` varchar(50) NOT NULL,
-  `id_film` varchar(50) NOT NULL,
+  `id_seance` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_salle` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `id_film` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_seance`),
   KEY `id_salle` (`id_salle`),
   KEY `id_film` (`id_film`),
   CONSTRAINT `seance_ibfk_1` FOREIGN KEY (`id_salle`) REFERENCES `salle` (`id_salle`),
   CONSTRAINT `seance_ibfk_2` FOREIGN KEY (`id_film`) REFERENCES `film` (`id_film`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -248,11 +248,11 @@ DROP TABLE IF EXISTS `tarif`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tarif` (
-  `id_tarif` varchar(50) NOT NULL,
-  `nom_tarif` varchar(50) DEFAULT NULL,
-  `tarif` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_tarif` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_tarif` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tarif` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_tarif`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +261,7 @@ CREATE TABLE `tarif` (
 
 LOCK TABLES `tarif` WRITE;
 /*!40000 ALTER TABLE `tarif` DISABLE KEYS */;
-INSERT INTO `tarif` VALUES ('TA1','PLEIN TARIF','9,20 EUR'),('TA2','etudiant','7,60 EUR'),('TA3','Moins de 14ans','5,90 EUR');
+INSERT INTO `tarif` VALUES ('TA1','PLEIN TARIF','9.20 EUR'),('TA2','ETUDIANT','7.60 EUR'),('TA3','MOINS DE 14ans','5.90 EUR');
 /*!40000 ALTER TABLE `tarif` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -274,4 +274,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-20 22:28:44
+-- Dump completed on 2021-05-20 23:15:45
